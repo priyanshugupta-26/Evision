@@ -158,7 +158,7 @@ def compute_acf_pacf(
     max_possible_lags = min(nlags, len(clean_series) // 2 - 1)
 
     acf_vals, acf_confint = acf(clean_series, nlags=max_possible_lags, alpha=alpha)
-    pacf_vals, pacf_confint = pacf(clean_series, nlags=max_possible_lags, alpha=alpha, method="yule_walker")
+    pacf_vals, pacf_confint = pacf(clean_series, nlags=max_possible_lags, alpha=alpha, method="ywm")
 
     lags = np.arange(len(acf_vals))
     # Bartlett's approx threshold for significance: ~ 1.96 / sqrt(N)
