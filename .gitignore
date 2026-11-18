@@ -45,3 +45,6 @@ artifacts/*.joblib
 artifacts/*.ubj
 !artifacts/README.md
 !data/README.md
+
+# Nested clones
+Evision/
