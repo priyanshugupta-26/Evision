@@ -3,6 +3,7 @@
 [![Python Version](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-00D2FF?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Streamlit-1.67+-FF4D6D?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Machine Learning](https://img.shields.io/badge/ML-XGBoost%20%7C%20Statsmodels%20%7C%20Scikit--Learn-7000FF?style=flat)](https://scikit-learn.org/)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/priyanshugupta-26/Evision)
 [![License](https://img.shields.io/badge/License-CC0%201.0%20Universal-06D6A0?style=flat)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 > **EVision** is an end-to-end, production-grade time series forecasting and operational intelligence platform designed for municipal utilities, Charging Point Operators (CPOs), and power grid distribution planners. Utilizing real empirical data from the official **UrbanEV** benchmark dataset (Shenzhen, China), EVision predicts zone-level electric vehicle charging demand, detects statistical peak loading periods, and provides automated operational recommendations.
@@ -232,9 +233,34 @@ This script downloads the official UrbanEV benchmark from GitHub and compiles op
 
 ---
 
-## 11. Running the Application
+## 11. Deployment
 
-Launch the Streamlit interactive dashboard locally:
+### A. Deploy to Render (Recommended Cloud Container Host)
+
+Render provides persistent container execution with full WebSocket support, making it the ideal host for Streamlit.
+
+#### 1-Click Render Blueprint:
+Click the button below to deploy directly via Render Blueprints using `render.yaml`:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/priyanshugupta-26/Evision)
+
+#### Manual Render Web Service Setup:
+1. Sign in to [Render.com](https://dashboard.render.com/).
+2. Click **New +** > **Web Service**.
+3. Connect your repository: `https://github.com/priyanshugupta-26/Evision`.
+4. Configure settings:
+   - **Name:** `evision-ev-charging`
+   - **Runtime:** `Python 3`
+   - **Build Command:** `pip install --upgrade pip && pip install -r requirements.txt`
+   - **Start Command:** `streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false --server.enableXsrfProtection false`
+   - **Plan:** Free
+5. Click **Create Web Service**.
+
+> **Note on Vercel:** Vercel is built for stateless, short-lived serverless functions (Next.js/React APIs with execution timeouts of 10–60s). Because Streamlit relies on a continuously running Python process with a stateful bidirectional WebSocket connection (`_stcore/stream`), deploying native Streamlit apps on Vercel causes immediate WebSocket disconnections, memory leaks, and 504 Gateway Timeouts. Render, Streamlit Community Cloud, or Docker containers are the production standards for Streamlit.
+
+---
+
+## 12. Running the Application Locally
 ```bash
 streamlit run app.py
 ```

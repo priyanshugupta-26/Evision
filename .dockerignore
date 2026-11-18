@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.git/
+.gitignore
+data/raw/volume.csv
+data/raw/*.zip
+data/raw/*.tar.gz
+data/raw/SZ_districts/
+.DS_Store
