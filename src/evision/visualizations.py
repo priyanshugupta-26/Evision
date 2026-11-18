@@ -3,7 +3,7 @@ Interactive Visualization Module for EVision.
 Generates polished, SaaS-grade Plotly charts adhering to the Dark Navy & Electric Blue design system.
 """
 
-from typing import Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 import numpy as np
 import pandas as pd
