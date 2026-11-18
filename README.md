@@ -206,8 +206,8 @@ When alerts trigger, EVision synthesizes tactical dispatch actions:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/priyanshugupta-26/evision-ev-charging-forecast.git
-cd evision-ev-charging-forecast
+git clone https://github.com/priyanshugupta-26/Evision.git
+cd Evision
 ```
 
 ### 2. Create and Activate Virtual Environment
